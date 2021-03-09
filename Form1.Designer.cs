@@ -31,7 +31,7 @@ namespace Part_8___Hangman
         {
             this.lblUsedLetters = new System.Windows.Forms.Label();
             this.lstUsedLetters = new System.Windows.Forms.ListBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtGuess = new System.Windows.Forms.TextBox();
             this.btnGuess = new System.Windows.Forms.Button();
             this.lblWord = new System.Windows.Forms.Label();
             this.lblTitle = new System.Windows.Forms.Label();
@@ -58,13 +58,13 @@ namespace Part_8___Hangman
             this.lstUsedLetters.Size = new System.Drawing.Size(86, 160);
             this.lstUsedLetters.TabIndex = 2;
             // 
-            // textBox1
+            // txtGuess
             // 
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(357, 319);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(41, 31);
-            this.textBox1.TabIndex = 3;
+            this.txtGuess.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtGuess.Location = new System.Drawing.Point(357, 319);
+            this.txtGuess.Name = "txtGuess";
+            this.txtGuess.Size = new System.Drawing.Size(41, 31);
+            this.txtGuess.TabIndex = 3;
             // 
             // btnGuess
             // 
@@ -125,7 +125,7 @@ namespace Part_8___Hangman
             this.Controls.Add(this.lblTitle);
             this.Controls.Add(this.lblWord);
             this.Controls.Add(this.btnGuess);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txtGuess);
             this.Controls.Add(this.lstUsedLetters);
             this.Controls.Add(this.lblUsedLetters);
             this.Controls.Add(this.imgHangman);
@@ -143,7 +143,7 @@ namespace Part_8___Hangman
         private System.Windows.Forms.PictureBox imgHangman;
         private System.Windows.Forms.Label lblUsedLetters;
         private System.Windows.Forms.ListBox lstUsedLetters;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtGuess;
         private System.Windows.Forms.Button btnGuess;
         private System.Windows.Forms.Label lblWord;
         private System.Windows.Forms.Label lblTitle;
