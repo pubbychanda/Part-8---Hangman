@@ -43,17 +43,17 @@ namespace Part_8___Hangman
             // lblUsedLetters
             // 
             this.lblUsedLetters.AutoSize = true;
-            this.lblUsedLetters.Font = new System.Drawing.Font("Paradox Mosaic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblUsedLetters.Location = new System.Drawing.Point(341, 86);
+            this.lblUsedLetters.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblUsedLetters.Location = new System.Drawing.Point(364, 111);
             this.lblUsedLetters.Name = "lblUsedLetters";
-            this.lblUsedLetters.Size = new System.Drawing.Size(149, 22);
+            this.lblUsedLetters.Size = new System.Drawing.Size(127, 25);
             this.lblUsedLetters.TabIndex = 1;
             this.lblUsedLetters.Text = "Used letters";
             // 
             // lstUsedLetters
             // 
             this.lstUsedLetters.FormattingEnabled = true;
-            this.lstUsedLetters.Location = new System.Drawing.Point(369, 114);
+            this.lstUsedLetters.Location = new System.Drawing.Point(369, 139);
             this.lstUsedLetters.Name = "lstUsedLetters";
             this.lstUsedLetters.Size = new System.Drawing.Size(86, 160);
             this.lstUsedLetters.TabIndex = 2;
@@ -61,7 +61,7 @@ namespace Part_8___Hangman
             // txtGuess
             // 
             this.txtGuess.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtGuess.Location = new System.Drawing.Point(357, 319);
+            this.txtGuess.Location = new System.Drawing.Point(499, 319);
             this.txtGuess.Name = "txtGuess";
             this.txtGuess.Size = new System.Drawing.Size(41, 31);
             this.txtGuess.TabIndex = 3;
@@ -69,9 +69,9 @@ namespace Part_8___Hangman
             // btnGuess
             // 
             this.btnGuess.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.btnGuess.Font = new System.Drawing.Font("Proxima Nova Lt", 9.749999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnGuess.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.749999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnGuess.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
-            this.btnGuess.Location = new System.Drawing.Point(404, 319);
+            this.btnGuess.Location = new System.Drawing.Point(546, 319);
             this.btnGuess.Name = "btnGuess";
             this.btnGuess.Size = new System.Drawing.Size(71, 31);
             this.btnGuess.TabIndex = 4;
@@ -90,22 +90,22 @@ namespace Part_8___Hangman
             // lblTitle
             // 
             this.lblTitle.AutoSize = true;
-            this.lblTitle.Font = new System.Drawing.Font("Paradox Mosaic", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTitle.Location = new System.Drawing.Point(121, 9);
+            this.lblTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTitle.Location = new System.Drawing.Point(208, 9);
             this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Size = new System.Drawing.Size(252, 50);
+            this.lblTitle.Size = new System.Drawing.Size(247, 55);
             this.lblTitle.TabIndex = 6;
             this.lblTitle.Text = "HangMan!";
             // 
             // lblDescrition
             // 
-            this.lblDescrition.Font = new System.Drawing.Font("Proxima Nova Lt", 9.749999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDescrition.Location = new System.Drawing.Point(9, 59);
+            this.lblDescrition.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.749999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDescrition.Location = new System.Drawing.Point(12, 64);
             this.lblDescrition.Name = "lblDescrition";
-            this.lblDescrition.Size = new System.Drawing.Size(471, 27);
+            this.lblDescrition.Size = new System.Drawing.Size(619, 22);
             this.lblDescrition.TabIndex = 7;
-            this.lblDescrition.Text = "Enter a letter and then press the guess button.  You have 6 attempts or you lose!" +
-    "";
+            this.lblDescrition.Text = "Enter a single letter and then press the guess button.  You have 6 attempts or yo" +
+    "u lose!";
             // 
             // imgHangman
             // 
@@ -120,7 +120,7 @@ namespace Part_8___Hangman
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(498, 450);
+            this.ClientSize = new System.Drawing.Size(629, 462);
             this.Controls.Add(this.lblDescrition);
             this.Controls.Add(this.lblTitle);
             this.Controls.Add(this.lblWord);
