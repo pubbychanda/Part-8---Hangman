@@ -37,6 +37,7 @@ namespace Part_8___Hangman
             this.lblTitle = new System.Windows.Forms.Label();
             this.lblDescrition = new System.Windows.Forms.Label();
             this.imgHangman = new System.Windows.Forms.PictureBox();
+            this.btnReset = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.imgHangman)).BeginInit();
             this.SuspendLayout();
             // 
@@ -61,7 +62,7 @@ namespace Part_8___Hangman
             // txtGuess
             // 
             this.txtGuess.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtGuess.Location = new System.Drawing.Point(499, 319);
+            this.txtGuess.Location = new System.Drawing.Point(499, 382);
             this.txtGuess.Name = "txtGuess";
             this.txtGuess.Size = new System.Drawing.Size(41, 31);
             this.txtGuess.TabIndex = 3;
@@ -71,7 +72,7 @@ namespace Part_8___Hangman
             this.btnGuess.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
             this.btnGuess.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.749999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnGuess.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
-            this.btnGuess.Location = new System.Drawing.Point(546, 319);
+            this.btnGuess.Location = new System.Drawing.Point(546, 382);
             this.btnGuess.Name = "btnGuess";
             this.btnGuess.Size = new System.Drawing.Size(71, 31);
             this.btnGuess.TabIndex = 4;
@@ -104,7 +105,7 @@ namespace Part_8___Hangman
             this.lblDescrition.Name = "lblDescrition";
             this.lblDescrition.Size = new System.Drawing.Size(619, 22);
             this.lblDescrition.TabIndex = 7;
-            this.lblDescrition.Text = "Enter a single letter and then press the guess button.  You have 6 attempts or yo" +
+            this.lblDescrition.Text = "Enter a single letter and then press the green button.  You have 6 attempts or yo" +
     "u lose!";
             // 
             // imgHangman
@@ -116,11 +117,23 @@ namespace Part_8___Hangman
             this.imgHangman.TabIndex = 0;
             this.imgHangman.TabStop = false;
             // 
+            // btnReset
+            // 
+            this.btnReset.BackColor = System.Drawing.Color.Yellow;
+            this.btnReset.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
+            this.btnReset.Location = new System.Drawing.Point(499, 419);
+            this.btnReset.Name = "btnReset";
+            this.btnReset.Size = new System.Drawing.Size(118, 31);
+            this.btnReset.TabIndex = 8;
+            this.btnReset.Text = "Reset";
+            this.btnReset.UseVisualStyleBackColor = false;
+            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(629, 462);
+            this.Controls.Add(this.btnReset);
             this.Controls.Add(this.lblDescrition);
             this.Controls.Add(this.lblTitle);
             this.Controls.Add(this.lblWord);
@@ -148,6 +161,7 @@ namespace Part_8___Hangman
         private System.Windows.Forms.Label lblWord;
         private System.Windows.Forms.Label lblTitle;
         private System.Windows.Forms.Label lblDescrition;
+        private System.Windows.Forms.Button btnReset;
     }
 }
 
