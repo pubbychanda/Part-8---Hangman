@@ -16,12 +16,14 @@ namespace Part_8___Hangman
         string word;
         string guess;
         string displayWord;
+        string customDisplayWord;
         string hiddenWord;
         int numOfGuesses;
         int newWord;
         List<string> usedLetters = new List<string>();
         List<string> lstWords = new List<string>();
         List<string> lstDisplayWords = new List<string>();
+        List<string> lstDisplayCustomWords = new List<string>();
         List<string> lstNewWords = new List<string>();
         List<string> lstHiddenNewWords = new List<string>();
         Random rng = new Random();
@@ -48,7 +50,7 @@ namespace Part_8___Hangman
             lstDisplayWords.Add("---------");
             lstDisplayWords.Add("------");
             lstDisplayWords.Add("-------");
-            lstDisplayWords.Add("---------");
+            lstDisplayWords.Add("--------");
             lstDisplayWords.Add("--------");
 
             newWord = rng.Next(0, 7);
@@ -146,14 +148,19 @@ namespace Part_8___Hangman
             if (txtHiddenWord.Text.Trim() != "")
             {
                 lstNewWords.Add(txtHiddenWord.Text.Trim().ToUpper());
+
                 for (int i = 0; txtHiddenWord.Text.Length > i; i++)
                 {
                     hiddenWord += "*";
+                    customDisplayWord += "-";
                 }
                 lstHiddenNewWords.Add(hiddenWord);
+                lstDisplayCustomWords.Add(customDisplayWord);
+
             }
-                
+            txtHiddenWord.Text = "";
             hiddenWord = "";
+            customDisplayWord = "";
             lstHiddenWords.DataSource = null;
             lstHiddenWords.DataSource = lstHiddenNewWords;
         }
@@ -173,15 +180,22 @@ namespace Part_8___Hangman
 
         private void chkSelectHiddenWords_CheckedChanged(object sender, EventArgs e)
         {
-            ///we do want to use our custom words
-            if (chkSelectHiddenWords.Checked == true)
+            ///we want to use our custom words
+            if (chkSelectHiddenWords.Checked == true && lstHiddenNewWords.Count > 0)
             {
+                newWord = rng.Next(0, lstNewWords.Count);
+                word = lstNewWords[newWord];
 
+                displayWord = lstDisplayCustomWords[newWord];
+                lblWord.Text = displayWord;
             }
             ///we want to use the defalt words 
             else
             {
-
+                newWord = rng.Next(0, 7);
+                word = lstWords[newWord];
+                displayWord = lstDisplayWords[newWord];
+                lblWord.Text = displayWord;
             }
         }
     }
