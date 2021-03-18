@@ -16,12 +16,14 @@ namespace Part_8___Hangman
         string word;
         string guess;
         string displayWord;
+        string hiddenWord;
         int numOfGuesses;
         int newWord;
-        char[] charGuess;
         List<string> usedLetters = new List<string>();
         List<string> lstWords = new List<string>();
         List<string> lstDisplayWords = new List<string>();
+        List<string> lstNewWords = new List<string>();
+        List<string> lstHiddenNewWords = new List<string>();
         Random rng = new Random();
 
         public frmMain()
@@ -32,9 +34,7 @@ namespace Part_8___Hangman
         private void frmMain_Load(object sender, EventArgs e)
         {
             lstWords.Add("COMPUTER");
-            ///two s's
-            lstWords.Add("FISHSTICK");
-            ///word with two T's is not working
+            lstWords.Add("FISHSTICKS");
             lstWords.Add("BUTTER");
             lstWords.Add("MINECRAFT");
             lstWords.Add("SPIDER");
@@ -43,7 +43,7 @@ namespace Part_8___Hangman
             lstWords.Add("CUTBLACK");
             ///0-7
             lstDisplayWords.Add("--------");
-            lstDisplayWords.Add("---------");
+            lstDisplayWords.Add("----------");
             lstDisplayWords.Add("------");
             lstDisplayWords.Add("---------");
             lstDisplayWords.Add("------");
@@ -61,31 +61,34 @@ namespace Part_8___Hangman
 
         private void btnGuess_Click(object sender, EventArgs e)
         {
-            guess = txtGuess.Text.Trim().ToUpper();
-            charGuess = guess.ToCharArray();
-            txtGuess.Text = "";
-            ///correct guess
-            if (word.Contains(guess))
+            if (txtGuess.Text.Trim().Length > 0 && txtGuess.Text.Trim().Length < 2)
             {
-                for (int i = 1; guess.Max() > i; i++)
+                guess = txtGuess.Text.Trim().ToUpper();
+                for (int i = 0; word.Length > i; i++)
                 {
-                    if (word.IndexOfAny(charGuess, i) != -1)
+                    ///correct guess
+                    if (word.IndexOf(guess, i) != -1)
                     {
-                        displayWord = displayWord.Remove(word.IndexOfAny(charGuess, i), 1);
-                        displayWord = displayWord.Insert(word.IndexOfAny(charGuess), guess);
+                        displayWord = displayWord.Remove(word.IndexOf(guess, i), 1);
+                        displayWord = displayWord.Insert(word.IndexOf(guess, i), guess);
                     }
+                    lblWord.Text = displayWord;
                 }
-                lblWord.Text = displayWord;
+                ///incorrect guess
+                if (word.IndexOf(guess) == -1)
+                {
+                    usedLetters.Add(guess);
+                    lstUsedLetters.DataSource = null;
+                    lstUsedLetters.DataSource = usedLetters;
+                    numOfGuesses--;
+                    lblDescrition.Text = "Enter a single letter and then press the green button. You have " + numOfGuesses + " attempts or you lose!";
+                }
+
+
             }
-            ///incorrect guess
-            else
-            {
-                usedLetters.Add(guess);
-                lstUsedLetters.DataSource = null;
-                lstUsedLetters.DataSource = usedLetters;
-                numOfGuesses--;
-                lblDescrition.Text = "Enter a single letter and then press the green button. You have " + numOfGuesses +" attempts or you lose!";
-            }
+            txtGuess.Text = "";
+
+
 
             switch (numOfGuesses)
             {
@@ -118,9 +121,68 @@ namespace Part_8___Hangman
             if (numOfGuesses >= 0 & !displayWord.Contains("-"))
             {
                 lblDescrition.Text = "You Win!!!! and you still have " + numOfGuesses + " attempt(s) left. Good job! :)";
-
+                btnGuess.Enabled = false;
             }
                 
+        }
+
+        private void btnReset_Click(object sender, EventArgs e)
+        {
+            newWord = rng.Next(0, 7);
+            displayWord = lstDisplayWords[newWord];
+            word = lstWords[newWord];
+            numOfGuesses = 6;
+            lblWord.Text = displayWord;
+            usedLetters.Clear();
+            lstUsedLetters.DataSource = null;
+            lstUsedLetters.DataSource = usedLetters;
+
+            lblDescrition.Text = "Enter a single letter and then press the green button. You have " + numOfGuesses + " attempts or you lose!";
+            btnGuess.Enabled = true;
+        }
+
+        private void btnAddHiddenWord_Click(object sender, EventArgs e)
+        {
+            if (txtHiddenWord.Text.Trim() != "")
+            {
+                lstNewWords.Add(txtHiddenWord.Text.Trim().ToUpper());
+                for (int i = 0; txtHiddenWord.Text.Length > i; i++)
+                {
+                    hiddenWord += "*";
+                }
+                lstHiddenNewWords.Add(hiddenWord);
+            }
+                
+            hiddenWord = "";
+            lstHiddenWords.DataSource = null;
+            lstHiddenWords.DataSource = lstHiddenNewWords;
+        }
+
+        private void btnDeleteSelected_Click(object sender, EventArgs e)
+        {
+            if (lstHiddenWords.SelectedIndex != -1)
+            {
+                lstHiddenNewWords.RemoveAt(lstHiddenWords.SelectedIndex);
+                lstNewWords.RemoveAt(lstHiddenWords.SelectedIndex);
+                txtHiddenWord.Text = "";
+            }
+
+            lstHiddenWords.DataSource = null;
+            lstHiddenWords.DataSource = lstHiddenNewWords;
+        }
+
+        private void chkSelectHiddenWords_CheckedChanged(object sender, EventArgs e)
+        {
+            ///we do want to use our custom words
+            if (chkSelectHiddenWords.Checked == true)
+            {
+
+            }
+            ///we want to use the defalt words 
+            else
+            {
+
+            }
         }
     }
 }
