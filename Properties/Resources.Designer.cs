@@ -129,5 +129,23 @@ namespace Part_8___Hangman.Properties {
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+        /// </summary>
+        internal static System.IO.UnmanagedMemoryStream Lose_Sound {
+            get {
+                return ResourceManager.GetStream("Lose_Sound", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+        /// </summary>
+        internal static System.IO.UnmanagedMemoryStream Win_Sound {
+            get {
+                return ResourceManager.GetStream("Win_Sound", resourceCulture);
+            }
+        }
     }
 }

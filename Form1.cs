@@ -9,10 +9,12 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+
 namespace Part_8___Hangman
 {
     public partial class frmMain : Form
     {
+        System.Media.SoundPlayer WinSound, LoseSound;
         string word;
         string guess;
         string displayWord;
@@ -20,6 +22,9 @@ namespace Part_8___Hangman
         string hiddenWord;
         int numOfGuesses;
         int newWord;
+        /// <summary>
+        /// use better names for lists next time to avoid confusion between listboxes and list<mytype>
+        /// </summary>
         List<string> usedLetters = new List<string>();
         List<string> lstWords = new List<string>();
         List<string> lstDisplayWords = new List<string>();
@@ -56,6 +61,9 @@ namespace Part_8___Hangman
             newWord = rng.Next(0, 7);
             displayWord = lstDisplayWords[newWord];
             word = lstWords[newWord];
+
+            WinSound = new System.Media.SoundPlayer(Properties.Resources.Win_Sound);
+            LoseSound = new System.Media.SoundPlayer(Properties.Resources.Lose_Sound);
        
             numOfGuesses = 6;
             lblWord.Text = displayWord;
@@ -90,8 +98,6 @@ namespace Part_8___Hangman
             }
             txtGuess.Text = "";
 
-
-
             switch (numOfGuesses)
             {
                 case 6:
@@ -115,6 +121,7 @@ namespace Part_8___Hangman
                 ///lose check
                 case 0:
                     imgHangman.Image = Properties.Resources.HangmanArm2;
+                    LoseSound.Play();
                     lblDescrition.Text = "You have " + numOfGuesses + " attempts. You Lose!";
                     btnGuess.Enabled = false;
                     break;
@@ -122,6 +129,7 @@ namespace Part_8___Hangman
             ///win check
             if (numOfGuesses >= 0 & !displayWord.Contains("-"))
             {
+                WinSound.Play();
                 lblDescrition.Text = "You Win!!!! and you still have " + numOfGuesses + " attempt(s) left. Good job! :)";
                 btnGuess.Enabled = false;
             }
@@ -130,9 +138,23 @@ namespace Part_8___Hangman
 
         private void btnReset_Click(object sender, EventArgs e)
         {
-            newWord = rng.Next(0, 7);
-            displayWord = lstDisplayWords[newWord];
-            word = lstWords[newWord];
+            if (chkSelectHiddenWords.Checked == true && lstHiddenNewWords.Count > 0)
+            {
+                newWord = rng.Next(0, lstNewWords.Count);
+                word = lstNewWords[newWord];
+
+                displayWord = lstDisplayCustomWords[newWord];
+                lblWord.Text = displayWord;
+            }
+            else
+            {
+                newWord = rng.Next(0, 7);
+                word = lstWords[newWord];
+                displayWord = lstDisplayWords[newWord];
+                lblWord.Text = displayWord;
+                chkSelectHiddenWords.Checked = false;
+            }
+
             numOfGuesses = 6;
             lblWord.Text = displayWord;
             usedLetters.Clear();
