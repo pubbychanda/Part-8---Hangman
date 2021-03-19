@@ -116,6 +116,7 @@ namespace Part_8___Hangman
             this.lblDescrition.TabIndex = 7;
             this.lblDescrition.Text = "Enter a single letter and then press the green button.  You have 6 attempts or yo" +
     "u lose!";
+            this.lblDescrition.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // btnReset
             // 
